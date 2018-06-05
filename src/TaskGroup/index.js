@@ -11,19 +11,23 @@ class TaskGroup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      allTasks: [],
       tasks: [],
       groupName: this.props.match.params.group
     }
   }
   componentDidMount() {
     this.props.getTasks();
+    this.setState({ allTasks: this.props.tasks });
     var filteredTasks = getTasksByGroup(this.props.tasks, this.state.groupName);
     this.setState({ tasks: filteredTasks });
   }
   render() {
+    var allTasks = this.state.allTasks;
+    console.log('allTasks=' + allTasks);
     var tasks = this.state.tasks;
     var listOfTasks = tasks.map((task, index) => {
-      if (dependenciesAreCompleted(tasks, task.dependencyIds)) {
+      if (dependenciesAreCompleted(allTasks, task.dependencyIds)) {
         return <UnlockedTask key={index} data={task}/>
       } else {
         return <LockedTask key={index} data={task} />
