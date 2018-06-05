@@ -1,0 +1,10 @@
+@import '../styles/_variables.scss';
+
+.app-container {
+  background-color: $light-grey;
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  font-family: $font;
+}
