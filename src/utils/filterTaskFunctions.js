@@ -8,6 +8,7 @@ export function getOneTask(tasks, index) {
 
 export function sortTasksByGroup(tasks) {
   var sortDataByGroup = {};
+  console.log(tasks);
   tasks.forEach(object => {
     if (sortDataByGroup.hasOwnProperty(object.group)) {
       sortDataByGroup[object.group].push(object);

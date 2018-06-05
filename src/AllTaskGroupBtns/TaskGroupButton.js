@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 class TaskGroupButton extends React.Component {
   render() {
     var taskGroup = this.props.taskGroup;
-    console.log(taskGroup);
     var completedTasks = taskGroup.filter((task) => {
       return task.completedAt === true;
     });

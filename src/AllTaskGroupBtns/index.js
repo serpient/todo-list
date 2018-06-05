@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect, Dispatch } from 'react-redux';
-import { getTasks, getTasksByGroup, getGroupNames } from '../redux/taskActions';
+import { getTasks } from '../redux/taskActions';
 import TaskGroupButton from './TaskGroupButton';
+import { getOneTask, getTasksByGroup, getGroupNames } from '../utils/filterTaskFunctions';
 
 class AllTaskGroupBtns extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: '',
-      groups: []
+      tasks: this.props.tasks
     }
   }
   componentDidMount() {
-    this.props.getGroupNames();
-    this.setState({ groups: this.props.tasks });
+    // save tasks from redux to state
+    this.props.getTasks();
+    this.setState({ tasks: this.props.tasks });
   }
   render() {
-    var arrayOfGroupNames = this.state.groups;
+    var tasks = this.state.tasks;
+    var arrayOfGroupNames = getGroupNames(tasks);
     console.log(arrayOfGroupNames);
     var bundleOfTaskGroups = arrayOfGroupNames.map((name, index) => {
-      this.props.getTasksByGroup(name, () => {
-        this.setState({ tasks: this.props.tasks })
-      });
-      console.log('tasks=' + this.state.tasks);
-
       return ( 
-        <TaskGroupButton taskGroup={this.props.tasks} key={index} groupName={name}/>
+        <TaskGroupButton taskGroup={getTasksByGroup(tasks, name)} key={index} groupName={name}/>
       );
     });
     return ( 
@@ -44,10 +41,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getTasksByGroup: dispatch(getTasksByGroup()),
-//     getGroupNames: dispatch(getGroupNames())
-//   }
-// }
-export default connect(mapStateToProps, {getTasksByGroup, getGroupNames})(AllTaskGroupBtns);
+export default connect(mapStateToProps, {getTasks})(AllTaskGroupBtns);
