@@ -1,0 +1,34 @@
+@import '../styles/_variables.scss';
+
+.all-task-group-container {
+  @include container;
+}
+
+.header {
+  @include header;
+}
+
+.task-group-btn {
+  @include tasks-container;
+}
+
+.task-triangle-icon {
+  grid-area: s;
+  color: $light-grey;
+  align-self: center;
+}
+
+.task-group-text {
+  grid-area: t;
+}
+
+.task-group-title {
+  font-size: 16px;
+  color: $dark-grey;
+  font-weight: 700;
+}
+
+.task-group-tasks-count {
+  color: $medium-grey;
+  font-size: 14px;
+}

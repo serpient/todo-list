@@ -1,0 +1,41 @@
+@import '../styles/_variables.scss';
+
+.task-group-container {
+  @include container;
+}
+
+.header {
+  @include header;
+  display: inline-block;
+}
+
+.tasks-container {
+  @include tasks-container;
+}
+
+.all-groups-btn {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  color: $theme-green;
+  float: right;
+}
+
+.task-status-img {
+  grid-area: s;
+  align-self: center;
+}
+
+.task-name {
+  grid-area: t;
+  align-self: center;
+  color: $dark-grey;
+}
+
+.completed-text {
+  text-decoration: line-through;
+}
+
+.locked-task {
+  color: $light-grey;
+}

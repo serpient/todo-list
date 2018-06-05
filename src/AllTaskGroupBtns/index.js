@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect, Dispatch } from 'react-redux';
+import React from 'react';
+import { connect } from 'react-redux';
 import { getTasks } from '../redux/taskActions';
 import TaskGroupButton from './TaskGroupButton';
-import { getOneTask, getTasksByGroup, getGroupNames } from '../utils/filterTaskFunctions';
+import { getTasksByGroup, getGroupNames } from '../utils/filterTaskFunctions';
+import './AllTaskGroupBtns.css';
 
 class AllTaskGroupBtns extends React.Component {
   constructor(props) {

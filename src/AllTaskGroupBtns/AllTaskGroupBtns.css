@@ -3,29 +3,22 @@
 COLORS
 ==========================
 */
-$dark-grey: #757575;
-$medium-grey: #95989a;
-$light-grey: #d1d1d1;
-$pale-grey: #f7f7f7;
-$theme-green: #1ba572;
 /*
 ==========================
 FONT
 ==========================
 */
-$font: 'Open Sans', 'Helvetica Neue', Helvetica, 'Varela Round', sans-serif;
 /*
 ==========================
 BORDERS
 ==========================
 */
-$border-bottom: 1px solid $pale-grey;
 /*
 ==========================
 CONTAINER
 ==========================
 */
-@mixin container {
+.all-task-group-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -37,24 +30,38 @@ CONTAINER
   width: 600px;
   height: 600px;
   background-color: white;
-  border: 1px solid $light-grey;
-}
+  border: 1px solid #d1d1d1; }
 
-@mixin header {
-  color: $dark-grey;
+.header {
+  color: #757575;
   font-size: 24px;
   padding-bottom: 10px;
-  border-bottom: $border-bottom;
-}
+  border-bottom: 1px solid #f7f7f7; }
 
-@mixin tasks-container {
+.task-group-btn {
   padding-top: 20px;
   padding-bottom: 20px;
-  color: $dark-grey;
-  border-bottom: $border-bottom;
+  color: #757575;
+  border-bottom: 1px solid #f7f7f7;
   text-decoration: none;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: "s t t t t t";
-}
+  grid-template-areas: "s t t t t t"; }
+
+.task-triangle-icon {
+  grid-area: s;
+  color: #d1d1d1;
+  align-self: center; }
+
+.task-group-text {
+  grid-area: t; }
+
+.task-group-title {
+  font-size: 16px;
+  color: #757575;
+  font-weight: 700; }
+
+.task-group-tasks-count {
+  color: #95989a;
+  font-size: 14px; }
